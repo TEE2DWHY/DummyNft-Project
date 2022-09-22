@@ -25,7 +25,7 @@
         <hr style="color: #fff;">
         <h4>Welcome to the FAMILY!</h4>
         <hr style="color: #fff;">
-        <p>1. Connect your wallet with
+        <p>1. Connect your wallet
             <br> <br>
             2. Click on the MINT button to claim your Dummy NFT
         </p>
@@ -33,16 +33,20 @@
         <img class="nft" src="images/nft-non-fungible-token.gif" alt="nft">
         <hr style="color: #fff;">
         <div>
-            <i class="fa-solid fa-plus" onclick="add()"></i> <span style="padding: 10px;" id="price">0.13</span> <span
-                style="font-size: 32px" onclick="subtract()">-</span>
+            <span style="font-size: 32px" onclick="subtract()">-</span> <span style="padding: 10px;"
+                id="price">0.13</span>
+            <i class="fa-solid fa-plus" onclick="add()"></i>
         </div>
         <hr style="color: #fff;">
         <h3>FLOOR PRICE: 0.13 ETH</h3>
-        <button class="btn">Connect Wallet</button>
+        <button class="btn" id="btn-login">Connect Wallet</button>
         <br> <br>
     </div>
 
-    <script src="main.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
+    <script
+        src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

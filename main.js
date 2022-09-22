@@ -19,3 +19,27 @@ function subtract() {
         alert("quantity cannot be less than 0!")
     }
 }
+
+/* Moralis init code */
+const serverUrl = "https://na9xpnhehmew.usemoralis.com:2053/server";
+const appId = "RRA42KNb8t818QjsYE8qbnOgeeIEGeuSNEVLuUZg";
+Moralis.start({ serverUrl, appId });
+
+async function login() {
+    let user = Moralis.User.current();
+    if (!user) {
+        user = await Moralis.authenticate({
+            signinMessage: "Autheticate DummyNFT",
+            provider: "walletconnect"
+        })
+            .then(function (user) {
+                console.log("logged in user:", user);
+                console.log(user.get("ethAddress"));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+}
+
+document.getElementById("btn-login").onclick = login;
