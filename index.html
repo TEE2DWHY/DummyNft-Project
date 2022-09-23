@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dummy NFT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -19,7 +20,7 @@
 </head>
 
 <body>
-    <img class="logo" src="images/logo.jpg" alt="logo">
+    <img class="logo" src="images/logo.webp" alt="logo">
     <div class="container">
         <h1>LIMITED SALE IS NOW <span style="color:#FFE9A0">LIVE!</span></h1>
         <hr style="color: #fff;">
@@ -28,20 +29,33 @@
         <p>1. Connect your wallet
             <br> <br>
             2. Click on the MINT button to claim your Dummy NFT
+            <br> <br>
+            3. Ensure you've logged out before reconnecting
+            <br> <br>
+            <em>!!! Ensure you have at least the floor price worth of eth to successfully</em>
+            mint your dummyNFT
         </p>
         <hr style="color: #fff;">
-        <img class="nft" src="images/nft-non-fungible-token.gif" alt="nft">
+        <img class="nft" src="images/dummy.gif" alt="nft">
         <hr style="color: #fff;">
         <div>
             <span style="font-size: 32px" onclick="subtract()">-</span> <span style="padding: 10px;"
-                id="price">0.13</span>
+                id="price">0.001</span>
             <i class="fa-solid fa-plus" onclick="add()"></i>
         </div>
         <hr style="color: #fff;">
-        <h3>FLOOR PRICE: 0.13 ETH</h3>
+        <h3>FLOOR PRICE: 0.001 ETH</h3>
         <button class="btn" id="btn-login">Connect Wallet</button>
+        <button class="btn" onclick="send()">Mint</button>
+        <br> <br>
+        <button class="btn" id="btn-logout" style="width: 80px; font-size:12px">Logout</button>
         <br> <br>
     </div>
+
+    <footer>
+        <p>© Copyright <a href="https://github.com/TEE2DWHY/">Tee2dWhy</a></p>
+        <p id="year"> </p>
+    </footer>
 
     <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
     <script

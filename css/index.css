@@ -9,6 +9,8 @@ body{
     width:150px;
     height:150px;
     border-radius: 100%;
+    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s; /* don't forget to set a duration! */
 }
 
 .container{
@@ -54,6 +56,11 @@ body{
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Media Querry */
