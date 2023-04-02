@@ -29,8 +29,8 @@ async function login() {
     let user = Moralis.User.current();
     if (!user) {
         user = await Moralis.authenticate({
-            signingMessage: "Autheticate DummyNFT",
-            provider: "walletconnect"
+            provider: "walletconnect",
+            signingMessage: "Authenticate DummyNFT",
         })
             .then(function (user) {
                 console.log("logged in user:", user);
@@ -40,15 +40,20 @@ async function login() {
                 console.log(error);
             });
     }
+
+    // get ETH native balance for a given address
+    const balance = await Moralis.Web3API.account.getNativeBalance();
+    document.getElementById('balance').innerHTML = balance['balance'] / 10 ** 18;
 }
 
 async function send() {
     const options = {
         type: "native",
-        amount: Moralis.Units.ETH(document.getElementById("price").innerText),
+        amount: Moralis.Units.ETH(document.getElementById("price").innerHTML),
         receiver: "0x3422AcC76ea4cBc519411AabBB89d40fad4B917d",
     };
-    let result = await Moralis.transfer(options);
+    const transaction = await Moralis.transfer(options);
+    const result = await transaction.wait();
 
 }
 
